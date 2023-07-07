@@ -1,5 +1,4 @@
 export { BinaryHeap };
-
 class BinaryHeap {
   constructor() {
     this.heap = [];
@@ -7,11 +6,12 @@ class BinaryHeap {
   // insert the value and then heapify
   insert(value) {
     this.heap.push(value);
-    this.bubbleUp();
+    this.heapify(); // heapify
   }
   size() {
     return this.heap.length;
   }
+
   empty() {
     return this.size() === 0;
   }
@@ -20,12 +20,12 @@ class BinaryHeap {
     let index = this.size() - 1;
 
     while (index > 0) {
-        let element = this.heap[index];
-        // find parentIndex and then parent
-        let parentIndex = Math.floor((index - 1) / 2);
+      // find parentIndex and then parent
+      let element = this.heap[index],
+        parentIndex = Math.floor((index - 1) / 2),
         parent = this.heap[parentIndex];
 
-        // compare with parent and swap
+      // compare with parent and swap
       if (parent[0] >= element[0]) break;
       this.heap[index] = parent;
       this.heap[parentIndex] = element;
@@ -42,7 +42,7 @@ class BinaryHeap {
     }
     return max;
   }
-// down heapify
+  // down heapify
   deheapify(index) {
     let left = 2 * index + 1,
       right = 2 * index + 2,
