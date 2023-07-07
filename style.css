@@ -513,8 +513,10 @@ button {
     text-align:center
   }
 }
+
 .social-icons
 {
+  margin-left: -10px;
   list-style:none;
 }
 .social-icons li
